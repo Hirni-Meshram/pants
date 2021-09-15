@@ -16,6 +16,7 @@ class Protoc(TemplatedExternalTool):
         "3.11.4|linux_x86_64|6d0f18cd84b918c7b3edd0203e75569e0c8caecb1367bbbe409b45e28514f5be|1591191",
         "3.11.4|macos_arm64 |8c6af11e1058efe953830ecb38324c0e0fd2fb67df3891896d138c535932e7db|2482119",
         "3.11.4|macos_x86_64|8c6af11e1058efe953830ecb38324c0e0fd2fb67df3891896d138c535932e7db|2482119",
+        "3.11.4|linux_arm64 |f24c9fa1fc4a7770b8a5da66e515cb8a638d086ad2afa633abb97137c5f029a8|1481946",
     ]
     default_url_template = (
         "https://github.com/protocolbuffers/protobuf/releases/download/"
@@ -25,6 +26,7 @@ class Protoc(TemplatedExternalTool):
         "linux_x86_64": "linux-x86_64",
         "macos_arm64": "osx-x86_64",  # May require rosetta, but output is arch-independent
         "macos_x86_64": "osx-x86_64",
+        "linux_arm64": "linux-aarch_64"
     }
 
     @classmethod
