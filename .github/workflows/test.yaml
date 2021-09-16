@@ -377,7 +377,7 @@ jobs:
       PANTS_REMOTE_CACHE_READ: 'false'
       PANTS_REMOTE_CACHE_WRITE: 'false'
       img: quay.io/pypa/manylinux2014_aarch64
-    if: ${{ github.repository_owner == 'pantsbuild' }}
+   # if: ${{ github.repository_owner == 'pantsbuild' }}
     steps:
     - name: Checkout
       uses: actions/checkout@v2
