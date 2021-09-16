@@ -410,12 +410,12 @@ jobs:
       with:
         name: pants-log-wheels-linux
         path: .pants.d/pants.log
-    - env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      if: github.event_name == 'push'
-      name: Deploy to S3
-      run: ./build-support/bin/deploy_to_s3.py
+  #  - env:
+   #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    #    AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+     # if: github.event_name == 'push'
+      #name: Deploy to S3
+      #run: ./build-support/bin/deploy_to_s3.py
   build_wheels_macos:
     env:
       PANTS_REMOTE_CACHE_READ: 'false'
