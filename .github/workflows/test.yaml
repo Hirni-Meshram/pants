@@ -664,6 +664,34 @@ jobs:
         python-version:
         - '3.7'
     timeout-minutes: 60
+    
+  test_python_aarch64_linux:
+  #  if: ${{ github.repository_owner == 'pantsbuild' }}
+    name: Test Python (AArch64 Linux)
+  #  needs: build_wheels_aarch64
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        pyver: [cp36-cp36m, cp37-cp37m, cp38-cp38]
+      fail-fast: false
+    env:
+      py: /opt/python/${{ matrix.pyver }}/bin/python
+      img: quay.io/pypa/manylinux2014_aarch64
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Set up QEMU
+      id: qemu
+      uses: docker/setup-qemu-action@v1
+    - name: Install dependencies
+      run: |
+            docker run --rm -v ${{ github.workspace }}:/ws:rw --workdir=/ws \
+            ${{ env.img }} \
+            bash -exc '${{ env.py }} -m venv .env && \
+            source .env/bin/activate && \
+            ./pants test && \
+            deactivate'
+
   test_python_macos:
     env:
       ARCHFLAGS: -arch x86_64
