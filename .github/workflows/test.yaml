@@ -410,7 +410,6 @@ jobs:
       with:
         name: pants-log-wheels-linux
         path: .pants.d/pants.log
-    timeout-minutes: 300        
   #  - env:
    #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
     #    AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
